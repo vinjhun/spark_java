@@ -3,12 +3,13 @@ package spark.learn;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.spark.SparkConf;
-import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import scala.Tuple2;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class SparkMain {
 
@@ -107,6 +108,8 @@ public class SparkMain {
         System.out.println("===Flat Map===");
 
         JavaRDD<String> individualWords = sc.parallelize(msg).flatMap(value -> Arrays.asList(value.split(" ")).iterator());
+        individualWords.filter(value -> value.length() > 1).collect().forEach(System.out::println);
+
 
         //====boring sorting
         /**

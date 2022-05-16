@@ -17,3 +17,11 @@ Spark
 -I have a RDD, and Reduce the value into
 
 -Mapping : Transform the data into another rdd
+
+- Sort and Coalesce
+Sort: sort and foreach not printing in order as partitioning occurs in spark (X?)
+*misunderstood about the foreach (not forEach) logic.
+*take - able to retrieve the accurate top X data regardless of partitions - when data is finished
+*collect - when data is finished * (confident)
+*We should get correct sorting regardless of how Spark organised the data.
+Coalesce: Specify how many partitions to end up with.
